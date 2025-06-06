@@ -6,7 +6,9 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_SEND_URL,
     title: 'Send current URL to Telegram',
-    contexts: ['page', 'browser_action']
+    // "browser_action" was removed in Manifest V3; use "action" for the
+    // extension button context menu.
+    contexts: ['page', 'action']
   });
   chrome.contextMenus.create({
     id: MENU_SEND_SELECTION,
@@ -32,6 +34,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
       if (text) {
         sendMessageToTelegram(text);
       }
+    }).catch(err => {
+      console.error('Failed to read clipboard', err);
     });
   }
 });
