@@ -6,7 +6,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_SEND_URL,
     title: 'Send current URL to Telegram',
-    contexts: ['page', 'action']
+    contexts: ['page', 'browser_action']
   });
   chrome.contextMenus.create({
     id: MENU_SEND_SELECTION,

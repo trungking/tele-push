@@ -12,9 +12,3 @@ This extension lets you quickly send information from your browser to a Telegram
 2. Open `chrome://extensions` in your browser and enable **Developer mode**.
 3. Click **Load unpacked** and select this folder.
 4. Open the extension's options page and enter your Telegram bot token and chat ID.
-
-The extension adds context menu entries so you can right-click on a page or selected text and send it directly to your configured Telegram chat. You can also use the extension's toolbar icon to send the current page or your clipboard contents.
-
-## GitHub Releases
-
-Pushing a tag starting with `v` triggers a GitHub Actions workflow that packages the extension as `tele-push.crx` and uploads it to the release for that tag.
