@@ -16,7 +16,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_SEND_CLIPBOARD,
     title: 'Send clipboard text to Telegram',
-    contexts: ['all']
+    contexts: ['action']
   });
 });
 

@@ -1,0 +1,24 @@
+name: Build and Release CRX
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install crx CLI
+        run: npm install -g crx
+      - name: Pack extension
+        run: crx pack . -o tele-push.crx
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: tele-push.crx
